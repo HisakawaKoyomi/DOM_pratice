@@ -96,6 +96,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../my_first_repo" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
