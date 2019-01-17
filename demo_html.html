@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
 <head>
-    <meta charset="UTF-8">
-    <title>demo</title>
+    <meta charset = "utf-8">
+    <title>demo_html</title>
 </head>
 <body>
+<div id="parentElement">
+    <span id="childElement">foo bar</span>
+</div>
 
+<script>
+    // Create the new node to insert
+    var newNode = document.createElement("span");
+
+    // Get a reference to the parent node
+    var parentDiv = document.getElementById("childElement").parentNode;
+
+    // Begin test case [ 1 ] : Exist a childElement --> All working correctly
+    var sp2 = document.getElementById("childElement");
+    parentDiv.insertBefore(newNode, sp2);
+</script>
 </body>
 </html>

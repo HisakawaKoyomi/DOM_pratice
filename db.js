@@ -2,7 +2,7 @@
 // https://github.com/stefanpenner/es6-promise
 function DBComment() {
     // rand string as mock id
-    var mock_chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz';
+    var mock_chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz';
     var mock_string = function(len){
         len = len||10;
         var ret = [];
@@ -122,7 +122,7 @@ function DBComment() {
      * @return {Promise} 评论总数加载 Promise，完成后将给定页评论总数作为回调输入参数
      */
     this.getCommentTotal = function () {
-        var mock = {page:1,limit:1};
+        var mock = {page:2,limit:3};
         return this.getCommentList(mock).then(function () {
             return mock_comment_list.length;
         });

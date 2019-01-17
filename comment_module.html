@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Comment DB Example</title>
+    <meta charset="utf-8">
+    <title>comment_module</title>
     <style>
-        /* reset */
+
         * {
             margin: 0;
             padding: 0;
@@ -12,16 +12,20 @@
             font-style: normal;
             font-size: 12px;
         }
+
         ul, li {
             list-style: none;
         }
+
         a {
             text-decoration: none;
         }
+
         /* common function */
         .f-clear{
             clear: both;
         }
+
         .f-clear:after {
             content: '';
             clear: both;
@@ -29,40 +33,49 @@
             height: 0;
             visibility: hidden;
         }
+
         .g-main {
             padding: 0 20px;
         }
+
         /* header*/
         .m-header {
             height: 33px;
             border-bottom: 2px solid #c20c0c;
         }
+
         .m-header h2 {
             float: left;
             font-size: 20px;
             line-height: 28px;
         }
+
         .m-header .count {
             float: left;
             margin: 9px 0 0 20px;
             color: #666;
         }
+
         /* reply */
         .m-reply {
             margin-top: 20px;
             clear: both;
         }
+
         .m-reply .txt {
             padding-right: 14px;
         }
+
         .w-avatar {
             float: left;
             width: 50px;
             height: 50px;
         }
+
         .m-reply .reply {
             margin-left: 55px;
         }
+
         .m-reply .reply textarea {
             width: 100%;
             height: 50px;
@@ -73,15 +86,18 @@
             line-height: 19px;
             resize: none;
         }
+
         .m-reply .submit {
             margin-top: 10px;
         }
+
         .m-reply .submit .count {
             float: left;
             margin-right: 10px;
             line-height: 25px;
             color: #999;
         }
+
         .m-reply .submit [type="submit"] {
             float: right;
             width: 46px;
@@ -93,36 +109,45 @@
             border: 1px solid #2377C8;
             border-radius: 2px;
         }
+
         /* comment list */
         .m-comments {
             margin-top: 20px;
         }
+
         .m-comment {
             padding: 15px 0;
             border-top: 1px dotted #ccc;
         }
+
         .m-comment .reply {
             float:right;
             width: 110px;
             text-align: right;
         }
+
         .m-comment .reply, .m-comment .reply a{
             color: #999;
         }
+
         .m-comment .comment {
             margin: 0 110px 0 55px;
         }
+
         .m-comment .comment .user {
             color: #0c73c2;
         }
+
         /* comment pager */
         .m-pager {
             margin: 20px 0;
             text-align:center;
         }
+
         .m-pager>li {
             display: inline-block;
         }
+
         .m-pager a{
             min-width: 12px;
             display: block;
@@ -131,19 +156,23 @@
             border: 1px solid #ddd;
             border-radius: 2px;
         }
+
         .m-pager .btn a{
             background: #f0f0f0;
         }
+
         .m-pager .j-disabled a{
             color: #ccc;
             background: #f1f1f1;
             cursor: not-allowed;
         }
+
         .m-pager .j-selected a{
             color: #fff;
             background: #d41017;
             border-color: #a3171c;
         }
+
     </style>
     <script>
         function log(msg) {
@@ -154,43 +183,6 @@
     </script>
 </head>
 <body>
-<script src="db.js"></script>
-<script>
-    var db = new DBComment();
-    var id = +new Date;
-
-    // get login user
-    var user = db.getLoginUser();
-    log('<h3>login user info</h3>');
-    log('<p>'+JSON.stringify(user)+'</p>');
-
-    // comment list change event
-    db.on('listchange', function (event) {
-        log('<h3>comment list change for '+event.action+'</h3>');
-        log('<p>'+JSON.stringify(event.data)+'</p>');
-    });
-
-    // get comment total
-    db.getCommentTotal().then(function (total) {
-        log('<h3>get total comment</h3>');
-        log('<p>'+JSON.stringify(total)+'</p>');
-    });
-    // get comment list
-    db.getCommentList({page:2,limit:5}).then(function (list) {
-        log('<h3>get comment list</h3>');
-        log('<p>'+JSON.stringify(list)+'</p>');
-    });
-    // add comment item
-    db.addComment({id:id,content:'这是评论内容'}).then(function (data) {
-        log('<h3>add comment item</h3>');
-        log('<p>'+JSON.stringify(data)+'</p>');
-    });
-    // remove comment item
-    db.removeComment(id).then(function (data) {
-        log('<h3>remove comment item</h3>');
-        log('<p>'+JSON.stringify(data)+'</p>');
-    });
-</script>
 
 <section class="g-main">
     <header class="m-header f-clear">
@@ -345,5 +337,40 @@
         <li class="btn nxt"><a href="/page/10">下一页&gt;</a></li>
     </ul>
 </section>
+
+<script src = "db.js"></script>
+<script>
+    let db = new DBComment();
+    let id = +new Date;
+    let user = db.getLoginUser({
+        id: 'Yukino',
+        nickName: 'yukino',
+        avatarURL: 'img/avatar0.png'
+    },);
+
+    let comment = document.getElementsByClassName("comment");
+    let count = comment.length;
+    log('<p>共有' +  JSON.stringify(count) +'条评论 </p>');
+
+    db.getCommentTotal().then(function(ret){
+        // ret - 数值，评论总数
+        // TODO something
+    });
+
+    let opt = {
+        // 当前页码
+        page: 1,
+        // 每页显示数量
+        limit: 10
+    };
+
+    db.getCommentList(opt).then(function(ret){
+        // ret - 数组，当前页评论列表
+        // TODO something
+
+    });
+
+</script>
+
 </body>
 </html>
