@@ -1,3 +1,120 @@
 *{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    vertical-align: top;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.page{
+    width: 100%;
+    height: auto;
+    padding-top: 48px;
+}
 
+header{
+    width: 100%;
+    height: 48px;
+    background-color: #fff;
+    box-shadow: 0 5px 5px #ccc;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+
+header .header-in{
+    width: 1244px;
+    height: 100%;
+    margin: 0 auto;
+}
+header .header-in .header-left{
+    width: 435px;
+    height: 28px;
+    margin-top: 10px;
+    float: left;
+}
+header .header-in .header-left li{
+    margin-right: 20px;
+    float: left;
+}
+
+header .header-in .header-left li a{
+    line-height: 28px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    color: #444;
+}
+header .header-in .header-left li a:hover{
+    color: #c90000;
+}
+header .header-in .header-left li:nth-child(7) a{
+    line-height: 2px;
+    font-size: 40px;
+}
+header .header-in .header-left .new{
+    font-size: 12px;
+    color: #fff;
+    background-color: #f4a523;
+    display: inline-block;
+    width: 30px;
+    height: 14px;
+    line-height: 14px;
+    margin-left: 2px;
+    margin-top: 7px;
+}
+header .header-in .header-left .logo-pic a{
+    display: inline-block;
+    width: 80px;
+    height: 28px;
+    background: url("../images/huaban_logo.png") no-repeat;
+    background-size: cover;
+}
+
+header .header-in .header-center{
+    width: 675px;
+    height: 34px;
+    margin-top: 7px;
+    float: left;
+}
+header .header-in .header-center input{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: 0;
+    resize: none;
+}
+
+header .header-in .header-right{
+    width: 116px;
+    height: 48px;
+    float: right;
+}
+header .header-in .header-right a{
+    display: inline-block;
+    width: 52px;
+    height: 32px;
+    margin-top: 6px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 32px;
+    font-size: 16px;
+    color: #383838;
+    text-decoration: none;
+    float: right;
+}
+header .header-in .header-right a:nth-child(1){
+    float: left;
+    background: linear-gradient(#e53e49,#d43636);
+    color: #fff;
+    border: 1px solid #c90000;
 }
