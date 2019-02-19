@@ -359,7 +359,7 @@ header .header-in .header-right a:nth-child(1){
 }
 .tab .tab-content .dom{
     width: 100%;
-    height: 2000px;
+    height: auto;
     display: none;
 }
 .tab .tab-content .dom:nth-child(1){
@@ -375,7 +375,7 @@ header .header-in .header-right a:nth-child(1){
 .dom-top{
     width: 1244px;
     height: 126px;
-    padding: 16px;
+    padding: 16px 0; /*保证上下都有填色区域*/
     margin: 0 auto;
 }
 .dom-top li{
@@ -411,9 +411,8 @@ header .header-in .header-right a:nth-child(1){
 
 .dom-pull{
     width: 1244px;
-    height: 800px;
-    padding: 20px 0;
-    margin: 0 auto;
+    height: auto;
+    margin: 16px auto; /*防止使用padding，导致offset与height的起始点不一样产生空白*/
     position: relative;
 }
 .dom-pull .box{
@@ -452,6 +451,7 @@ header .header-in .header-right a:nth-child(1){
     top: 6px;
     background-color: red;
     z-index: 3;
+    display: none;
 }
 .dom-pull .box .btn-box .collect{
     position: absolute;
@@ -482,4 +482,139 @@ header .header-in .header-right a:nth-child(1){
     width: 14px;
     height: 14px;
     background: url("../images/action_icons12.png") -20px 0;
+}
+
+.elevator-item{
+    position: fixed;
+    right: 15px;
+    bottom: 10px;
+    z-index: 1000;
+    opacity: 1; /*不设置颜色，实际上仍然是透明*/
+    display: none;
+}
+
+.elevator-item .elevator{
+    display: inline-block;
+    width: 40px;
+    height: 36px;
+    border-radius: 4px;
+    background: url("../images/iconsprite_btbar.png") 8px 6px no-repeat;
+    background-color: rgba(0,0,0,0.6);
+    margin-bottom: 10px;
+}
+.elevator-item .elevator:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+
+.mask{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999;
+    display: none;
+}
+.mask .mask-center{
+    width: 420px;
+    height: 370px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.mask .mask-center .close-btn{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: url("../images/msg_close.png") 0 0;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+}
+.mask .mask-center .logoImg{
+    display: block;
+    width: 106px;
+    margin: 0 auto;
+}
+.mask .mask-center .center-box{
+    width: 286px;
+    margin: 15px auto;
+}
+.mask .mask-center .center-box .txtBox{
+    height: 20px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    color: #ccc;
+}
+.mask .mask-center .center-box .buttons{
+    width: 214px;
+    height: 48px;
+    margin: 10px auto;
+}
+.mask .mask-center .center-box .buttons a{
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin-right: 5px;
+    float: left;
+}
+.mask .mask-center .center-box .buttons a:nth-child(1){
+    background: url("../images/login_icons_tiny.svg") 0 0;
+}
+.mask .mask-center .center-box .buttons a:nth-child(2){
+    background: url("../images/login_icons_tiny.svg") -80px 0;
+}
+.mask .mask-center .center-box .buttons a:nth-child(3){
+    background: url("../images/login_icons_tiny.svg") -160px 0;
+}
+.mask .mask-center .center-box .buttons a:nth-child(4){
+    background: url("../images/login_icons_tiny.svg") -240px 0;
+}
+
+.mask .mask-center .center-box .mail-login{
+    width: 240px;
+    margin: 5px auto;
+}
+.mask .mask-center .center-box .mail-login .clear-input{
+    width: 240px;
+    height: 28px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5px auto;
+    box-sizing: border-box;
+    line-height: 28px;
+}
+.mask .mask-center .center-box .mail-login .btn{
+    display: inline-block;
+    width: 240px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #e53e49;
+    margin: 5px auto;
+    box-sizing: border-box;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.mask .mask-center .center-box .reset-password{
+    font-size: 14px;
+    margin-left: 24px;
+}
+.mask .mask-center .center-box .switch-back{
+    font-size: 14px;
+}
+.mask .mask-center .center-box .red-link{
+    color: red;
+
 }
