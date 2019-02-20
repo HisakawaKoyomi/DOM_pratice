@@ -1,7 +1,7 @@
 # DOM_pratice
-some pratice for DOM
+some pratice for DOM  
 
-
+-------------------
 [仿花瓣网](https://hisakawakoyomi.github.io/DOM_practice/huaban/index.html)  
  -----------------
 ### 功能
