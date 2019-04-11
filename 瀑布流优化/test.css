@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+ul{
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    background-color: #ccc;
+    overflow: auto;
+}
+ul li{
+    width: 200px;
+    height: auto;
+    position: absolute;
+    /* 不为 <li> 定边框，防止影响观感，边框置于<img> */
+}
+ul li img{
+    display: inline-block;
+    width: 200px;
+    height: auto;
+    border: 1px solid black;
+    visibility: hidden;
+    /*不使用display: none ，此法可以占位*/
+   /* height: 300px;*/
+}
